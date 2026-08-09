@@ -2,12 +2,27 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum AppError {
+    #[error("resource already exists: {0}")]
+    Conflict(String),
+
+    #[error("resource not found")]
+    NotFound,
+
+    #[error("validation error: {0}")]
+    Validation(String),
+
     #[error("configuration error: {0}")]
     Configuration(#[from] crate::config::ConfigError),
 
-    #[error("invalid socket address: {0}")]
-    InvalidSocketAddress(#[from] std::net::AddrParseError),
+    #[error("address parsing error: {0}")]
+    AddressParse(#[from] std::net::AddrParseError),
 
-    #[error("failed to bind server: {0}")]
-    ServerBind(#[from] std::io::Error),
+    #[error("io error: {0}")]
+    Io(#[from] std::io::Error),
+
+    #[error("database error: {0}")]
+    Database(#[from] sqlx::Error),
+
+    #[error("internal error")]
+    Internal,
 }
