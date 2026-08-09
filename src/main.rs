@@ -1,6 +1,14 @@
+mod api;
 mod app;
+mod audit;
+mod compute;
 mod config;
 mod error;
+mod functions;
+mod iam;
+mod jobs;
+mod platform;
+mod storage;
 
 use std::net::SocketAddr;
 
@@ -22,7 +30,9 @@ async fn main() -> Result<(), error::AppError> {
 
     let address = SocketAddr::new(config.host.parse()?, config.port);
 
-    let router = app::router();
+    let state = app::AppState::new(config.clone());
+
+    let router = app::router(state);
 
     info!(
         host = %config.host,
