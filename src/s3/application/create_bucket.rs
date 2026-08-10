@@ -1,9 +1,7 @@
 use crate::{
     error::AppError,
     platform::{CloudId, OrganizationId, Region, ResourceId, UserId},
-    storage::domain::{
-        bucket::Bucket, bucket_name::BucketName, bucket_repository::BucketRepository,
-    },
+    s3::domain::{bucket::Bucket, bucket_name::BucketName, bucket_repository::BucketRepository},
 };
 
 pub struct CreateBucketCommand {
@@ -59,7 +57,7 @@ mod tests {
     use crate::{
         error::AppError,
         platform::{CloudId, OrganizationId, Region, ResourceId, UserId},
-        storage::domain::{
+        s3::domain::{
             bucket::Bucket, bucket_name::BucketName, bucket_repository::BucketRepository,
             bucket_status::BucketStatus,
         },

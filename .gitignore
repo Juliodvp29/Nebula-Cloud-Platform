@@ -2,6 +2,7 @@
 
 **/*.rs.bk
 *.cargo/config.toml
+Cargo.lock
 
 .env
 .env.*

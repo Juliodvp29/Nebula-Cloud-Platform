@@ -1,7 +1,7 @@
 use uuid::Uuid;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct ResourceId(Uuid);
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
+pub struct ResourceId(pub Uuid);
 
 impl ResourceId {
     pub fn new() -> Self {

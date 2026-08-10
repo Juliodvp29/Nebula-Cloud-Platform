@@ -23,6 +23,12 @@ pub enum AppError {
     #[error("database error: {0}")]
     Database(#[from] sqlx::Error),
 
+    #[error("password error: {0}")]
+    Password(#[from] crate::auth::domain::password::PasswordError),
+
+    #[error("jwt error: {0}")]
+    Jwt(#[from] crate::auth::domain::jwt::JwtError),
+
     #[error("internal error")]
     Internal,
 }
