@@ -1,14 +1,15 @@
 mod api;
 mod app;
 mod audit;
+mod auth;
 mod compute;
 mod config;
 mod error;
-mod functions;
 mod iam;
 mod jobs;
+mod lambda;
 mod platform;
-mod storage;
+mod s3;
 
 use std::net::SocketAddr;
 

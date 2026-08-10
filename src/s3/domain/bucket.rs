@@ -2,7 +2,7 @@ use chrono::{DateTime, Utc};
 
 use crate::{
     platform::{CloudId, OrganizationId, Region, ResourceId, UserId},
-    storage::domain::{bucket_name::BucketName, bucket_status::BucketStatus},
+    s3::domain::{bucket_name::BucketName, bucket_status::BucketStatus},
 };
 
 #[derive(Debug, Clone, PartialEq, Eq)]

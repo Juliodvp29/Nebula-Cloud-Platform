@@ -1,7 +1,7 @@
 use uuid::Uuid;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct OrganizationId(Uuid);
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
+pub struct OrganizationId(pub Uuid);
 
 impl OrganizationId {
     pub fn new() -> Self {
@@ -14,6 +14,12 @@ impl OrganizationId {
 
     pub fn as_uuid(&self) -> Uuid {
         self.0
+    }
+}
+
+impl std::fmt::Display for OrganizationId {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
     }
 }
 

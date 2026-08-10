@@ -148,3 +148,6 @@ Depending on the change, completion may require:
 
 Keep the project educational, but do not use “educational” as an excuse
 for careless architecture.
+
+# SKILLS
+.ai/skills
